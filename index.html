@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>3D CSS cube, use arrow keys, touch gestures or click and drag to rotate </title>
+    <meta name="author" content="Pradeep Kotwal" />
+
+    <link rel="stylesheet" href="Content/Cube3d.css" />
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+	
+	
+</head>
+<body class="experiment">
+
+<style>
+.cube > div {
+    position: absolute;
+    height: 400px;
+    width: 400px;
+    padding: 0px;
+    background-color: rgba(50, 50, 50, 0.85); 
+    font-size: 1em;
+    line-height: 1em;
+    color: #fff;
+	<?php
+		if($row['background']==1)
+		{
+		?>
+			border: 0px solid #555 !important;
+		<?
+		}
+	?>
+    /* border: 0px solid #555 !important; */
+    border-radius: 3px;
+}
+
+.profitInsights {
+	background-color:GREEN;
+	height:200px;
+}
+
+.riskManagement {
+	background-color:RED;
+	height:200px;
+}
+
+.compliance {
+	background-color:BLUE;
+	height:200px;
+}
+
+.intelligence {
+	background-color:PINK;
+	height:200px;
+}
+
+
+.financialAccounting {
+	background-color:ORANGE;
+	height:200px;
+}
+
+.operational {
+	background-color:GRAY;
+	height:200px;
+}
+
+h2{
+	cursor: pointer; cursor: hand;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+}
+
+#modalProfitInsights .modal-content {
+	background-color:GREEN !important;
+	color: white;
+}
+
+#modalRiskManagement .modal-content {
+	background-color:RED !important;
+	color: white;
+}
+
+#modalCompliance  .modal-content {
+	background-color:BLUE !important;
+	color: white;
+}
+
+#modalIntelligence .modal-content {
+	background-color:PINK !important;
+	color: white;
+}
+
+#modalFinancialAccounting .modal-content {
+	background-color:ORANGE !important;
+	color: white;
+}
+
+#modalOperational .modal-content {
+	background-color:GRAY !important;
+	color: white;
+}
+
+</style>
+    <div class="wrapper">
+	
+        <p class="learn">
+			<img src="logo.png" alt="company-logo" width="360" height="77" style="{'margin-left':'20px','padding-top': '20px';}">
+        </p>
+<article class="viewport">
+    <section class="cube">
+	<!-- FACE ONE -->
+        <div>
+			<div style="wrapper;">
+				<div class="profitInsights leftright">
+					<div id='profitInsightsFaceOne' >
+						<span id='profitInsightsFaceOne' >
+							<h2 type="button"  data-toggle="modal" data-target="#modalProfitInsights">profitInsights</h2>
+						</span>
+					</div>
+				</div>
+			</div>
+			<div style="wrapper;" >
+				<div class="left compliance">
+					<span id='complianceFaceOne' >
+						<h2 type="button" data-toggle="modal" data-target="#modalCompliance">Compliance</h2>
+					</span>
+				</div>
+				<div class="right riskManagement">
+					<span id='riskManagementFaceOne' >
+						<h2 type="button" data-toggle="modal" data-target="#modalRiskManagement">Risk Management</h2>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!--  Face Two -->
+        <div>
+			<div style="wrapper;">
+				<div class="left compliance">
+					<span id='ComplianceFaceTwo' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalCompliance">Compliance</h2>
+					</span>
+				</div>
+				<div class="right riskManagement">
+					<span id='riskManagementFaceTwo' >
+						<h2 type="button" data-toggle="modal" data-target="#modalRiskManagement">Risk Management</h2>
+					</span>
+				</div>
+			</div>
+			<div>
+				<div class="leftright intelligence">
+					<span id="intelligenceFaceOneSpan"  >
+						<h2 type="button"  data-toggle="modal" data-target="#modalIntelligence">Intelligence</h2>
+					</span>	
+				</div>
+			</div>
+        </div>
+
+		<!-- Face Three --> 
+			
+        <div>
+			<div style="wrapper;">
+				<div class="left riskManagement">
+					<span id='riskManagementFaceThree' >
+						<h2 type="button" data-toggle="modal" data-target="#modalRiskManagement">Risk Management</h2>
+					</span>
+				</div>
+				<div class="right profitInsights">
+					<span id='profitInsightsFaceThree' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalProfitInsights">Profile Insigts</h2>
+					</span>
+				</div>
+			</div>
+			<div style="wrapper;" >
+				<div class="left intelligence">
+					<span id='intelligenceFaceThree' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalIntelligence">Intelligence</h2>
+					</span>
+				</div>
+				<div class="right operational">
+					<span id='operationalFaceThree' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalOperational">Operational</h2>
+					</span>
+				</div>
+			</div>
+        </div>
+		
+			<!--  Face Four	-->
+			
+        <div>
+			<div style="wrapper;">
+				<div class="leftright profitInsights">
+					<span id='profitInsightsFaceFour' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalProfitInsights">Profit Insights</h2>
+					</span>
+				</div>
+			</div>
+			<div style="wrapper;" >
+				<div class="left operational">
+					<span id='operationalFaceFour' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalOperational">Operational</h2>
+					</span>
+				</div>
+				<div class="right financialAccounting">
+					<span id='financialAccountingFaceFour' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalFinancialAccounting">Financial Accounting</h2>
+					</span>
+				</div>
+			</div>
+        </div>
+		
+		<!-- Face Five -->
+		
+        <div>
+			<div style="wrapper;">
+				<div class="left profitInsights">
+					<span id='profitInsightsFaceFive' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalProfitInsights">Profite Insights</h2>
+					</span>
+				</div>
+				<div class="right compliance">
+					<span id='complianceFaceFive' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalCompliance">Compliance</h2>
+					</span>
+				</div>
+			</div>
+			<div style="wrapper;" >
+				<div class="left financialAccounting">
+					<span id='financialAccountingFaceFive' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalFinancialAccounting">Financial Accounting</h2>
+					</span>
+				</div>
+				<div class="right intelligence">
+					<span id='intelligenceFaceFive' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalIntelligence">Intelligence</h2>
+					</span>
+				</div>
+			</div>
+        </div>
+		<!-- Face Six -->
+        <div>
+			<div style="wrapper;">
+				<div class="left operational">
+					<span id='operationalFaceSix' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalOperational">Operational</h2>
+					</span>
+				</div>
+				<div class="right financialAccounting">
+					<span id='financialAccountingFaceSix' >
+						<h2 type="button" data-toggle="modal" data-target="#modalFinancialAccounting">Financial Accounting</h2>
+					</span>
+				</div>
+			</div>
+			<div style="wrapper;" >
+				<div class="leftright intelligence">
+					<span id='intelligenceFaceSix' >
+						<h2 type="button"  data-toggle="modal" data-target="#modalIntelligence">Intelligence</h2>
+					</span>
+				</div>
+			</div>
+        </div>
+		
+		<!-- for Internal Div -->
+		<div id="internalDiv1" style="">
+			<div style="wrapper;">
+				<div class="left riskManagement">
+				</div>
+				<div class="right" style="height:200px;">
+				</div>
+			</div>
+			<div style="wrapper;">
+				<div class="right" style= {'background':'none important!'}>
+				</div>
+				
+				<div class="right operational">
+				</div>
+			</div>
+		</div>
+		<div id="internalDiv2"  style="">
+			<div style="wrapper;">
+				<div class="left compliance">
+				</div>
+				<div class="right" style="height:200px;">
+				</div>
+			</div>
+			<div style="wrapper;">
+				<div class="left">
+				</div>
+				<div class="right financialAccounting">
+				</div>
+			</div>
+		</div> 
+		<!-- Center Match from Top-->  
+		<div id="internalDiv3"  style="">
+			<div style="wrapper;">
+				<div class="leftright profitInsights">
+				</div>
+			</div>
+			<div style="wrapper;">
+				<div class="left compliance">
+				</div>
+				<div class="right riskManagement">
+				</div>
+			</div>
+		</div> 
+		<!-- Center Match from Bottom-->  
+		<div id="internalDiv4" style="">
+			<div style="wrapper;">
+				<div class="left financialAccounting">
+				</div>
+				<div class="right operational">
+				</div>
+			</div>
+			<div style="wrapper;">
+				<div class="leftright intelligence">
+				</div>
+			</div>
+		</div> 
+		<!-- Matches from left to right internal-->
+        <div id="internalDiv5" style="">
+			<div style="wrapper;">
+				<div class="left compliance">
+				</div>
+				<div class="right riskManagement">
+				</div>
+			</div>
+			<div>
+				<div class="leftright intelligence">
+				</div>
+			</div>
+        </div>
+		<!-- Matches from left to right internal-->
+        <div id="internalDiv6" style="">
+			<div style="wrapper;">
+				<div class="leftright profitInsights">
+				</div>
+			</div>
+			<div style="wrapper;" >
+				<div class="left financialAccounting">
+				</div>
+				<div class="right operational">
+				</div>
+			</div>
+        </div>
+		
+    </section>
+</article>
+    </div>
+	
+<!-- Modal for RiskManagement-->
+<div id="modalRiskManagement" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Risk Management</h4>
+      </div>
+      <div class="modal-body">
+	  	<div id="modalRiskManagementText">
+		Risk management is the identification, assessment, and prioritization of risks (defined in ISO 31000 as the effect of uncertainty on objectives) followed by coordinated and economical application of resources to minimize, monitor, and control the probability and/or impact of unfortunate events or to maximize the Risk.
+		</div>
+	</div>
+      <!-- <div class="modal-footer">
+         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+       </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Operational-->
+<div id="modalOperational" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Operational</h4>
+      </div>
+      <div class="modal-body">
+	  	<div id="modalOperationalText">
+		<p>
+			An operational definition is a result of the process of operationalization and is used to define something (e.g. a variable, term, or object) in terms of a process (or set of validation tests) needed to determine its existence, duration, and quantity.		
+		</p>
+		</div>
+	</div>
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal for FinancialAccounting-->
+<div id="modalFinancialAccounting" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Financial Accounting</h4>
+      </div>
+      <div class="modal-body">
+		<div id="modalFinancialAccountingText">
+		<p>
+			Financial accounting (or financial accountancy) is the field of accounting concerned with the summary, analysis and reporting of financial transactions pertaining		
+		</p>
+		</div>
+	</div>
+	<!-- 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal for compliance-->
+<div id="modalCompliance" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">compliance</h4>
+      </div>
+      <div class="modal-body">
+		<div id="modalComplianceText">
+			 Compliance means conforming to a rule, such as a specification, policy, standard or law. Regulatory compliance describes the goal that organisations aspire to achieve in their efforts to ensure that they are aware of and take steps to comply with relevant laws and regulations.
+		</div>
+	</div>
+	<!-- 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal for intelligence-->
+<div id="modalIntelligence" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Intelligence</h4>
+      </div>
+      <div class="modal-body">
+		<div id="modalIntelligenceText">
+		<p>
+			Intelligence has been defined in many different ways such as in terms of one's capacity for logic, abstract thought, understanding, self-awareness, communication, learning, emotional knowledge, memory, planning, creativity and problem solving.	</p>
+		</div>
+	</div>
+	<!-- 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Modal for profitInsights-->
+<div id="modalProfitInsights" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">profitInsights</h4>
+      </div>
+      <div class="modal-body">
+		<div id="modalProfitInsightsText">
+		<p>
+			A highly skilled team of analysts with years of experience in the financial industry, help banks and other financial institutions find hidden revenue opportunities		
+		</p>
+		</div>
+	</div>
+	<!-- 
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div> -->
+    </div>
+  </div>
+  <div id='cubeVelocity' style='display:none'>500</div>
+  <div id='cubeOpacity' style='display:none'>0.3</div>
+  
+</div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/touch.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	
+	<script>
+		$(document).ready(function () {  
+			$('.leftright, .left, .right').css('opacity',$('#cubeOpacity').text()); 
+		});
+	
+		$(".profitInsights").hover(
+			  function() {
+			$('.profitInsights').css('opacity','1');
+			$('#internalDiv2').show();
+			$('#internalDiv3').show();
+			$('#internalDiv6').show();
+			  }, function() {
+				$('.riskManagement, .compliance, .intelligence, .operational, .profitInsights, .financialAccounting').css('opacity',$('#cubeOpacity').text());
+				$('#internalDiv2').hide();
+				$('#internalDiv3').hide();
+				$('#internalDiv6').hide();
+				$('#riskManagementFaceTwoP').hide();
+				$('#ComplianceFaceTwop').hide();
+			  }
+			);
+
+		$(".financialAccounting").hover(
+			  function() {
+			$('.financialAccounting').css({'opacity':'1'});
+				$('#internalDiv2').show();
+				$('#internalDiv4').show();
+				$('#internalDiv6').show();
+			  }, function() {
+				$('.riskManagement, .compliance, .intelligence, .operational, .profitInsights, .financialAccounting').css('opacity',$('#cubeOpacity').text());
+				$('#internalDiv2').hide();
+				$('#internalDiv4').hide();
+				$('#internalDiv6').hide();
+				$('#riskManagementFaceTwoP').hide();
+				$('#ComplianceFaceTwop').hide();
+			  }
+			);
+
+		$(".operational").hover(
+			  function() {
+				$('.operational').css({'opacity':'1'});
+				$('#internalDiv2').show();
+				$('#internalDiv4').show();
+				$('#internalDiv6').show();
+			  }, function() {
+				$('.riskManagement, .compliance, .intelligence, .operational, .profitInsights, .financialAccounting').css('opacity',$('#cubeOpacity').text());
+				$('#internalDiv2').hide();
+				$('#internalDiv4').hide();
+				$('#internalDiv6').hide();
+				$('#riskManagementFaceTwoP').hide();
+				$('#ComplianceFaceTwop').hide();
+			  }
+			);
+
+		$(".intelligence").hover(
+			  function() {
+				$('.intelligence').css({'opacity':'1' });
+				$('#internalDiv1').show();
+				$('#internalDiv4').show();
+				$('#internalDiv5').show();
+			  }, function() {
+				$('.riskManagement, .compliance, .intelligence, .operational, .profitInsights, .financialAccounting').css('opacity',$('#cubeOpacity').text());
+				$('#internalDiv1').hide(); 
+				$('#internalDiv4').hide();
+				$('#internalDiv5').hide();
+				$('#riskManagementFaceTwoP').hide();
+				$('#ComplianceFaceTwop').hide();
+			  }
+			);
+
+		$(".compliance").hover(
+			  function() {
+				$('.compliance').css({'opacity':'1'});
+				$('#internalDiv1').show();
+				$('#internalDiv3').show();
+				$('#internalDiv5').show();
+				$('#ComplianceFaceTwop').show();
+			  }, function() {
+				$('.riskManagement, .compliance, .intelligence, .operational, .profitInsights, .financialAccounting').css('opacity',$('#cubeOpacity').text());
+				 $('#internalDiv1').hide(); 
+				$('#internalDiv3').hide();
+				$('#internalDiv5').hide();
+				$('#riskManagementFaceTwoP').hide();
+				$('#ComplianceFaceTwop').hide();
+			  }
+			);
+			
+		$(".riskManagement").hover(
+			  function() {
+				$('.riskManagement').css({'opacity':'1'});
+				$('#internaldiv1').show(); 
+				$('#internalDiv3').show();
+				$('#internalDiv5').show();
+				$('#riskManagementFaceTwoP').show();
+			  }, function() {
+				$('.riskManagement, .compliance, .intelligence, .operational, .profitInsights, .financialAccounting').css('opacity',$('#cubeOpacity').text());
+				$('#internalDiv1').hide();
+				$('#internalDiv3').hide();
+				$('#internalDiv5').hide();
+				$('#riskManagementFaceTwoP').hide();
+				$('#ComplianceFaceTwop').hide();
+			  }
+			);
+		
+	</script>
+</body>
+</html>
